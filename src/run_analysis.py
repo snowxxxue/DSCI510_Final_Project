@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-INPUT_FILE = "/Users/shirley/Desktop/510/Final Project/books_clean.csv"
+INPUT_FILE = "data/processed/books_clean.csv"
 
 def main():
     df = pd.read_csv(INPUT_FILE)
