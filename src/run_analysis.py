@@ -1,60 +1,33 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import os
 
 INPUT_FILE = "data/processed/books_clean.csv"
 
 def main():
+    if not os.path.exists(INPUT_FILE):
+        raise FileNotFoundError(f"Processed data not found: {INPUT_FILE}")
+
     df = pd.read_csv(INPUT_FILE)
 
-    # 1. Price Histogram
-    plt.figure(figsize=(8,5))
-    plt.hist(df["price"], bins=15)
-    plt.title("Price Distribution of Books")
-    plt.xlabel("Price (£)")
-    plt.ylabel("Count")
-    plt.grid(alpha=0.3)
-    plt.savefig("price_distribution.png")
-    plt.close()
+    print("\nBasic Info")
+    print(df.info())
+    
+    print("\nSummary Statistics")
+    print("Total books:", len(df))
+    print("Average price:", round(df["price"].mean(), 2))
+    print("Median price:", round(df["price"].median(), 2))
+    print("Most expensive price:", df["price"].max())
+    print("Cheapest price:", df["price"].min())
 
-    # 2. Rating Bar Chart
-    plt.figure(figsize=(8,5))
-    df["rating"].value_counts().sort_index().plot(kind="bar")
-    plt.title("Rating Distribution")
-    plt.xlabel("Rating")
-    plt.ylabel("Count")
-    plt.grid(alpha=0.3)
-    plt.savefig("rating_distribution.png")
-    plt.close()
+    print("\nRating Distribution")
+    print(df["rating"].value_counts().sort_index())
 
-    # 3. Price vs Rating Scatter Plot
-    plt.figure(figsize=(8,5))
-    plt.scatter(df["rating"], df["price"], s=40)
-    plt.title("Price vs Rating")
-    plt.xlabel("Rating")
-    plt.ylabel("Price (£)")
-    plt.grid(alpha=0.3)
-    plt.savefig("price_vs_rating.png")
-    plt.close()
+    print("\nTop 10 Most Expensive Books")
+    top10 = df.nlargest(10, "price")[["title", "price", "rating"]]
+    print(top10.to_string(index=False))
 
-    # 4. Top 10 Most Expensive Books
-    top10 = df.nlargest(10, "price")
-
-    plt.figure(figsize=(10,6))
-    plt.barh(top10["title"], top10["price"])
-    plt.title("Top 10 Most Expensive Books")
-    plt.xlabel("Price (£)")
-    plt.gca().invert_yaxis()
-    plt.grid(alpha=0.3)
-    plt.tight_layout()
-    plt.savefig("top10_expensive_books.png")
-    plt.close()
-
-    print("\n Visualization Completed!")
-    print("Saved files:")
-    print("- price_distribution.png")
-    print("- rating_distribution.png")
-    print("- price_vs_rating.png")
-    print("- top10_expensive_books.png")
+    print("\nAnalysis Completed.")
 
 if __name__ == "__main__":
     main()
+
