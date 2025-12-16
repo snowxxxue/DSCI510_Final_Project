@@ -45,8 +45,8 @@ Before running the project, install all required Python libraries.
 **1. Clone the repository**
 
 ```
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/snowxxxue/DSCI510_Final_Project.git
+cd DSCI510_Final_Project
 ```
 
 **2. Install dependencies**
