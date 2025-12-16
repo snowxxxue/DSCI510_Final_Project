@@ -21,6 +21,7 @@ The full workflow includes:
 
 **Directory Structure**
 ```
+.
 ├── README.md
 ├── requirements.txt
 ├── project_proposal.pdf
