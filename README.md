@@ -20,6 +20,7 @@ The full workflow includes:
 
 
 **Directory Structure**
+```
 ├── README.md
 ├── requirements.txt
 ├── project_proposal.pdf
@@ -35,6 +36,7 @@ The full workflow includes:
     ├── run_analysis.py
     ├── visualize_results.py
     └── utils/
+```
 
 **Installation Instructions**
 Before running the project, install all required Python libraries.
