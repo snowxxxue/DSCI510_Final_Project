@@ -52,10 +52,9 @@ cd <your-repo>
 pip install -r requirements.txt
 ```
 
-**How to Run the Project**
+## **How to Run the Project**
 The project follows a sequential workflow. Please run each script in order.
-## **Step 1 — Get Data**
-
+**Step 1 — Get Data**
 Scrape book titles, prices, ratings, and URLs from *Books to Scrape*.
 
 ```
@@ -66,10 +65,7 @@ python src/get_data.py
 
 * Raw scraped files saved under `data/raw/`.
 
----
-
-## **Step 2 — Clean Data**
-
+**Step 2 — Clean Data**
 Convert price strings to numeric values, map rating text (e.g., “Three”) to numbers, remove symbols, and save a structured CSV.
 
 ```
@@ -80,10 +76,8 @@ python src/clean_data.py
 
 * `data/processed/books_clean.csv`
 
----
 
-## **Step 3 — Run Analysis**
-
+**Step 3 — Run Analysis**
 Perform descriptive statistics such as average price, min/max, price distribution, and basic correlations.
 
 ```
@@ -94,10 +88,8 @@ python src/run_analysis.py
 
 * Summary statistics printed in terminal or saved in `results/`.
 
----
 
-## **Step 4 — Produce Visualizations**
-
+**Step 4 — Produce Visualizations**
 Generate all figures, including:
 
 * Price distribution histogram
